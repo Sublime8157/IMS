@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import Nav from "./views/components/nav";
+import Dashboard from "./views/dashboard";
+import Order from "./views/orders";
+import Inventory from "./views/inventory"; 
+import Report from "./views/report";
+import Setting from "./views/setting";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/dashboard" element={<Nav><Dashboard /></Nav>} />
+                <Route path="/orders" element={<Nav><Order /></Nav>} />
+                <Route path="/inventory" element={<Nav><Inventory /></Nav>} />
+                <Route path="/report" element={<Nav><Report /></Nav>} />
+                <Route path="/settings" element={<Nav><Setting /></Nav>} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
